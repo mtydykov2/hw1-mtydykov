@@ -21,6 +21,19 @@
             </errorHandling>
             <checkpoint batch="10000"/>
         </casProcessor>
+        		<casProcessor deployment="integrated" name="BIO NE Scorer">
+	        <descriptor>
+                <import location ="BioNEScorer.xml"/>
+            </descriptor>
+            <deploymentParameters/>
+            <filter></filter>
+            <errorHandling>
+                <errorRateThreshold action="terminate" value="100/1000"/>
+                <maxConsecutiveRestarts action="terminate" value="30"/>
+                <timeout max="100000"/>
+            </errorHandling>
+            <checkpoint batch="10000"/>
+        </casProcessor>
                 <casProcessor deployment="integrated" name="Output">
             <descriptor>
                 <import location="BioNEOutput.xml"/>

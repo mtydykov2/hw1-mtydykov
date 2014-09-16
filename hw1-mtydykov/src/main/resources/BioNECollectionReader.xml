@@ -15,12 +15,24 @@
         <multiValued>false</multiValued>
         <mandatory>false</mandatory>
       </configurationParameter>
+    <configurationParameter>
+        <name>GoldStandardFileName</name>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
     </configurationParameters>
     <configurationParameterSettings>
       <nameValuePair>
+        <name>GoldStandardFileName</name>
+        <value>
+          <string>/root/git/hw1-mtydykov/hw1-mtydykov/src/main/resources/data/sample.out</string>
+        </value>
+      </nameValuePair>
+    <nameValuePair>
         <name>InputDirectory</name>
         <value>
-          <string>/home/mtydykov/workspace/hw1-mtydykov/src/main/resources/data/sample.in</string>
+          <string>/root/git/hw1-mtydykov/hw1-mtydykov/src/main/resources/data/sample.in</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

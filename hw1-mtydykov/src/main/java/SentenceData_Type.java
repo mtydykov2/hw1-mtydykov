@@ -13,7 +13,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Sun Sep 14 16:31:40 EDT 2014
+ * Updated by JCasGen Mon Sep 15 22:12:48 EDT 2014
  * @generated */
 public class SentenceData_Type extends Annotation_Type {
   /** @generated 

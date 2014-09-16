@@ -10,8 +10,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Sun Sep 14 16:31:40 EDT 2014
- * XML source: /home/mtydykov/workspace/hw1-mtydykov/src/main/resources/typeSystemDescriptor.xml
+ * Updated by JCasGen Mon Sep 15 22:12:48 EDT 2014
+ * XML source: /root/git/hw1-mtydykov/hw1-mtydykov/src/main/resources/typeSystemDescriptor.xml
  * @generated */
 public class SentenceData extends Annotation {
   /** @generated

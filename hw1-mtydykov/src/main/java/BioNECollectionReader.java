@@ -15,10 +15,16 @@ public class BioNECollectionReader extends CollectionReader_ImplBase {
   private File myFile;
   private int myCurrentIndex;
   public static final String PARAM_INPUTDIR = "InputDirectory";
+  public static final String PARAM_GOLDSTANDARD_FILENAME = "GoldStandardFileName";
+
+  private File myGoldStandard;
   
   
   public void initialize(){
     myFile = new File(((String) getConfigParameterValue(PARAM_INPUTDIR)).trim());
+    if(!((String)getConfigParameterValue(PARAM_GOLDSTANDARD_FILENAME)).isEmpty()){
+      myGoldStandard = new File((String)getConfigParameterValue(PARAM_GOLDSTANDARD_FILENAME));
+    }
     myCurrentIndex = 0;
   }
   
@@ -40,9 +46,29 @@ public class BioNECollectionReader extends CollectionReader_ImplBase {
       SentenceData data = new SentenceData(myCas);
       String id = sent.substring(0, sent.indexOf(" "));
       String sentText = sent.substring(sent.indexOf(" "));
-      data.setSentenceText(sentText);
+      data.setSentenceText(sentText.trim());
       data.setSentenceId(id);
       data.addToIndexes();
+    }
+    
+    if(myGoldStandard != null){
+      String goldStandardText = FileUtils.file2String(myGoldStandard);
+      String[] goldStandardSents = goldStandardText.split("\n");
+
+      for(String sent: goldStandardSents){
+        String[] parts = sent.split("\\|");
+        String sentId = parts[0];
+        String[] indeces = parts[1].split(" ");
+        int begin = Integer.parseInt(indeces[0]);
+        int end = Integer.parseInt(indeces[1]);
+        String mentionText = parts[2];
+        GoldMention goldMention = new GoldMention(myCas);
+        goldMention.setSentenceId(sentId);
+        goldMention.setMentionBegin(begin);
+        goldMention.setMentionEnd(end);
+        goldMention.setMentionText(mentionText);
+        goldMention.addToIndexes();
+      }
     }
   }
 

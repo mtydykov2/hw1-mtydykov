@@ -27,10 +27,16 @@ public class BioNEAnnotator extends JCasAnnotator_ImplBase {
       Map<Integer, Integer> spanMap = 
               recognizer.getGeneSpans(curr.getSentenceText());
       for(Entry<Integer, Integer> pair: spanMap.entrySet()){
+        int begin = pair.getKey();
+        String before = curr.getSentenceText().substring(0, begin);
+        before = before.replaceAll("\\s+","");
+        int end = pair.getValue();
+        String after = curr.getSentenceText().substring(0, end);
+        after = after.replaceAll("\\s+","");
         GeneMention mention = new GeneMention(arg0);
-        mention.setMentionBegin(pair.getKey());
-        mention.setMentionEnd(pair.getValue());
-        mention.setMentionText(curr.getSentenceText().substring(mention.getMentionBegin(), mention.getMentionEnd()));
+        mention.setMentionBegin(before.length());
+        mention.setMentionEnd(after.length() - 1);
+        mention.setMentionText(curr.getSentenceText().substring(begin, end));
         mention.setSentenceId(curr.getSentenceId());
         mention.addToIndexes();
       }
