@@ -110,4 +110,8 @@
     	<version>4.1.0</version>
     </dependency>
   </dependencies>
+  <scm>
+  	<connection>scm:git:git@github.com:mtydykov2/hw1-mtydykov.git</connection>
+  	<developerConnection>scm:git:git@github.com:mtydykov2/hw1-mtydykov.git</developerConnection>
+  </scm>
 </project>

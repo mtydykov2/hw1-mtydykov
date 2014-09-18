@@ -13,6 +13,13 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.FileUtils;
 
+/**
+ * 
+ * This is an annotator that scores extraction results based on the gold standard.
+ * @author mtydykov
+ *
+ */
+
 public class BioNEScorer extends JCasAnnotator_ImplBase {
 
 
@@ -49,9 +56,11 @@ public class BioNEScorer extends JCasAnnotator_ImplBase {
     DocStats stats = new DocStats(arg0);
     stats.setRecall((double)truePos/(totalPresent));
     stats.setPrecision((double)truePos/totalRecall);
+    stats.setF1Score((double)2*(stats.getRecall() * stats.getPrecision())/(stats.getRecall() + stats.getPrecision()));
     stats.addToIndexes();
     System.out.println("Recall :" + stats.getRecall());
     System.out.println("Precision : " + stats.getPrecision());
+    System.out.println("F1-Score : " + stats.getF1Score());
   }
 
 }

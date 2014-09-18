@@ -13,7 +13,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Mon Sep 15 22:12:48 EDT 2014
+ * Updated by JCasGen Wed Sep 17 14:20:01 EDT 2014
  * @generated */
 public class DocStats_Type extends Annotation_Type {
   /** @generated 
@@ -92,6 +92,30 @@ public class DocStats_Type extends Annotation_Type {
     ll_cas.ll_setDoubleValue(addr, casFeatCode_recall, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_f1Score;
+  /** @generated */
+  final int     casFeatCode_f1Score;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public double getF1Score(int addr) {
+        if (featOkTst && casFeat_f1Score == null)
+      jcas.throwFeatMissing("f1Score", "DocStats");
+    return ll_cas.ll_getDoubleValue(addr, casFeatCode_f1Score);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setF1Score(int addr, double v) {
+        if (featOkTst && casFeat_f1Score == null)
+      jcas.throwFeatMissing("f1Score", "DocStats");
+    ll_cas.ll_setDoubleValue(addr, casFeatCode_f1Score, v);}
+    
+  
 
 
 
@@ -111,6 +135,10 @@ public class DocStats_Type extends Annotation_Type {
  
     casFeat_recall = jcas.getRequiredFeatureDE(casType, "recall", "uima.cas.Double", featOkTst);
     casFeatCode_recall  = (null == casFeat_recall) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_recall).getCode();
+
+ 
+    casFeat_f1Score = jcas.getRequiredFeatureDE(casType, "f1Score", "uima.cas.Double", featOkTst);
+    casFeatCode_f1Score  = (null == casFeat_f1Score) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_f1Score).getCode();
 
   }
 }

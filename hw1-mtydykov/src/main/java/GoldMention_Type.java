@@ -13,7 +13,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Mon Sep 15 22:12:48 EDT 2014
+ * Updated by JCasGen Wed Sep 17 14:20:01 EDT 2014
  * @generated */
 public class GoldMention_Type extends Annotation_Type {
   /** @generated 

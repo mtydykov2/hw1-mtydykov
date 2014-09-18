@@ -9,6 +9,12 @@ import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceProcessException;
 
+/**
+ * 
+ * This is a CAS consumer that writes extracted gene mentions to the file specified by the output parameter.
+ *
+ */
+
 public class BioNEOutput extends CasConsumer_ImplBase {
 
   private static final String PARAM_OUTDIR = "outputFileName";
