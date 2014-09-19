@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <implementationName>BioNECollectionReader</implementationName>
-  <processingResourceMetaData>
-    <name>BioNECollectionReaderDescriptor</name>
+  <primitive>true</primitive>  <annotatorImplementationName>LingPipeAnnotator</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>LingPipeAnnotator</name>
     <description/>
     <version>1.0</version>
     <vendor/>
     <configurationParameters>
       <configurationParameter>
-        <name>InputDirectory</name>
-        <description>input directory name</description>
+        <name>ModelFileName</name>
+        <description>Path of model file to run.</description>
         <type>String</type>
         <multiValued>false</multiValued>
         <mandatory>false</mandatory>
@@ -18,9 +18,9 @@
     </configurationParameters>
     <configurationParameterSettings>
       <nameValuePair>
-        <name>InputDirectory</name>
+        <name>ModelFileName</name>
         <value>
-          <string>/root/git/hw1-mtydykov/hw1-mtydykov/src/main/resources/data/sample.in</string>
+          <string>src/main/resources/models/ne-en-bio-genetag.HmmChunker</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>
@@ -40,9 +40,9 @@
     </capabilities>
   <operationalProperties>
       <modifiesCas>true</modifiesCas>
-      <multipleDeploymentAllowed>false</multipleDeploymentAllowed>
-      <outputsNewCASes>true</outputsNewCASes>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
     </operationalProperties>
-  </processingResourceMetaData>
+  </analysisEngineMetaData>
   <resourceManagerConfiguration/>
-</collectionReaderDescription>
+</analysisEngineDescription>

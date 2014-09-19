@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName>BioNECleanLingPipeAnnotator</annotatorImplementationName>
+  <primitive>true</primitive>  <annotatorImplementationName>CleanLingPipeAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>BioNEAnnotator</name>
+    <name>CleanLingPipeAnnotator</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -20,7 +20,7 @@
       <nameValuePair>
         <name>ModelFileName</name>
         <value>
-          <string>/root/git/hw1-mtydykov/hw1-mtydykov/src/main/resources/ne-en-bio-genetag.HmmChunker</string>
+          <string>src/main/resources/models/ne-en-bio-genetag.HmmChunker</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

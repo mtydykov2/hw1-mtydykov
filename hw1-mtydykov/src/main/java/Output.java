@@ -11,16 +11,18 @@ import org.apache.uima.resource.ResourceProcessException;
 
 /**
  * 
- * This is a CAS consumer that writes extracted gene mentions to the file specified by the output parameter.
- *
+ * This is a CAS consumer that writes extracted gene mentions to the file specified by the output
+ * parameter.
+ * 
  */
 
-public class BioNEOutput extends CasConsumer_ImplBase {
+public class Output extends CasConsumer_ImplBase {
 
   private static final String PARAM_OUTDIR = "outputFileName";
+
   @Override
   public void processCas(CAS arg0) throws ResourceProcessException {
-   
+
     String outputFileName = (String) getConfigParameterValue(PARAM_OUTDIR);
     JCas cas;
     try {
@@ -37,11 +39,11 @@ public class BioNEOutput extends CasConsumer_ImplBase {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    while(it.hasNext()){
+    while (it.hasNext()) {
       GeneMention currMention = (GeneMention) it.next();
       try {
-        writer.write(currMention.getSentenceId() + "|" + currMention.getMentionBegin() 
-                + " " + currMention.getMentionEnd() + "|" + currMention.getMentionText() + "\n");
+        writer.write(currMention.getSentenceId() + "|" + currMention.getMentionBegin() + " "
+                + currMention.getMentionEnd() + "|" + currMention.getMentionText() + "\n");
       } catch (IOException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();

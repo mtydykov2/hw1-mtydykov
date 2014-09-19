@@ -1,35 +1,21 @@
-import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
-import org.apache.uima.cas.CASException;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
-import org.apache.uima.resource.ResourceProcessException;
-
-import com.aliasi.chunk.Chunk;
-import com.aliasi.chunk.Chunker;
-import com.aliasi.chunk.Chunking;
-import com.aliasi.util.AbstractExternalizable;
-
 
 /**
  * 
  * This is an annotator that uses Stanford POS tags to exract gene mentions.
+ * 
  * @author mtydykov
- *
+ * 
  */
 
-public class BioNESimpleAnnotator extends JCasAnnotator_ImplBase {
-
-  private File modelFile = null;
-
-  private final static String PARAM_MODEL_FILE = "ModelFileName";
+public class SimpleAnnotator extends JCasAnnotator_ImplBase {
 
   @Override
   public void process(JCas arg0) throws AnalysisEngineProcessException {

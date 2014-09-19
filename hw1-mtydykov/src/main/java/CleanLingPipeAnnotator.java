@@ -19,16 +19,18 @@ import com.aliasi.util.AbstractExternalizable;
 
 /**
  * 
- * This is an annotator that uses LingPipe to extract gene mentions.
+ * This is an annotator that uses both LingPipe and rules to extract gene mentions.
+ * 
  * @author mtydykov
- *
+ * 
  */
-
-public class BioNELingPipeAnnotator extends JCasAnnotator_ImplBase {
+public class CleanLingPipeAnnotator extends JCasAnnotator_ImplBase {
 
   private File modelFile = null;
 
   private final static String PARAM_MODEL_FILE = "ModelFileName";
+
+  private final static String[] badChars = new String[] { ")", "(" };
 
   @Override
   public void process(JCas arg0) throws AnalysisEngineProcessException {
@@ -48,13 +50,20 @@ public class BioNELingPipeAnnotator extends JCasAnnotator_ImplBase {
             int end = c.end();
             String after = curr.getSentenceText().substring(0, end);
             after = after.replaceAll("\\s+", "");
-
-            GeneMention mention = new GeneMention(arg0);
-            mention.setMentionBegin(before.length());
-            mention.setMentionEnd(after.length() - 1);
-            mention.setMentionText(curr.getSentenceText().substring(begin, end));
-            mention.setSentenceId(curr.getSentenceId());
-            mention.addToIndexes();
+            boolean badMention = false;
+            for (String s : badChars) {
+              if (curr.getSentenceText().substring(begin, end).contains(s)) {
+                badMention = true;
+              }
+            }
+            if (!badMention) {
+              GeneMention mention = new GeneMention(arg0);
+              mention.setMentionBegin(before.length());
+              mention.setMentionEnd(after.length() - 1);
+              mention.setMentionText(curr.getSentenceText().substring(begin, end));
+              mention.setSentenceId(curr.getSentenceId());
+              mention.addToIndexes();
+            }
           }
         }
       } catch (IOException e) {

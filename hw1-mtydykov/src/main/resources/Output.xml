@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <implementationName>BioNEOutput</implementationName>
+  <implementationName>Output</implementationName>
   <processingResourceMetaData>
-    <name>BioNEOutput</name>
+    <name>Output</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -20,7 +20,7 @@
       <nameValuePair>
         <name>outputFileName</name>
         <value>
-          <string>/root/git/hw1-mtydykov/hw1-mtydykov/hw1-mtydykov.out</string>
+          <string>hw1-mtydykov.out</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

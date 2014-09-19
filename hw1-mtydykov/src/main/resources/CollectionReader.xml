@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <implementationName>BioNEGoldStandardCollectionReader</implementationName>
+  <implementationName>CollectionReader</implementationName>
   <processingResourceMetaData>
-    <name>BioNECollectionReaderDescriptor</name>
+    <name>CollectionReader</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -15,24 +15,12 @@
         <multiValued>false</multiValued>
         <mandatory>false</mandatory>
       </configurationParameter>
-    <configurationParameter>
-        <name>GoldStandardFileName</name>
-        <type>String</type>
-        <multiValued>false</multiValued>
-        <mandatory>false</mandatory>
-      </configurationParameter>
     </configurationParameters>
     <configurationParameterSettings>
       <nameValuePair>
         <name>InputDirectory</name>
         <value>
-          <string>/root/git/hw1-mtydykov/hw1-mtydykov/src/main/resources/data/sample.in</string>
-        </value>
-      </nameValuePair>
-    <nameValuePair>
-        <name>GoldStandardFileName</name>
-        <value>
-          <string>/root/git/hw1-mtydykov/hw1-mtydykov/src/main/resources/data/sample.out</string>
+          <string>sample.in</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>

@@ -2,7 +2,7 @@
     <collectionReader>
         <collectionIterator>
             <descriptor>
-                <import location="BioNEGoldStandardCollectionReader.xml"/>
+                <import location="CollectionReader.xml"/>
             </descriptor>
         </collectionIterator>
      </collectionReader>
@@ -10,7 +10,7 @@
     <casProcessors casPoolSize="2" processingUnitThreadCount="1">
 		<casProcessor deployment="integrated" name="BIO NE Annotator">
 	        <descriptor>
-                <import location ="BioNESimpleAnnotator.xml"/>
+                <import location ="CleanLingPipeAnnotator.xml"/>
             </descriptor>
             <deploymentParameters/>
             <filter></filter>
@@ -23,7 +23,7 @@
         </casProcessor>
         		<casProcessor deployment="integrated" name="BIO NE Scorer">
 	        <descriptor>
-                <import location ="BioNEScorer.xml"/>
+                <import location ="Scorer.xml"/>
             </descriptor>
             <deploymentParameters/>
             <filter></filter>
@@ -36,7 +36,7 @@
         </casProcessor>
                 <casProcessor deployment="integrated" name="Output">
             <descriptor>
-                <import location="BioNEOutput.xml"/>
+                <import location="Output.xml"/>
             </descriptor>
             <deploymentParameters/>
             <filter></filter>
